@@ -10,11 +10,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import com.firebase.client.Firebase;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 public class AddNotes extends AppCompatActivity {
 
@@ -23,8 +25,6 @@ public class AddNotes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //
-        Firebase.setAndroidContext(this);
         //
         setContentView(R.layout.activity_add_notes);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -62,25 +62,27 @@ public class AddNotes extends AppCompatActivity {
                         note.setTitle(txt_note_title.getText().toString());
                         note.setSavedAt(new Date());
                         //
-                        new Thread(new Runnable() {
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference usersRef = database.getReference("users");
+                        //
+                        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                        String username = settings.getString("Username","");
+                        //
+                        DatabaseReference userRef = usersRef.child(username);
+                        userRef.setValue(note, new DatabaseReference.CompletionListener() {
                             @Override
-                            public void run() {
-                                Firebase myFirebaseRef = new Firebase("https://androfirenotes.firebaseio.com/");
-                                Firebase usersRef = myFirebaseRef.child("users");
-                                //
-                                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-                                String username = settings.getString("Username","");
-                                //
-                                Firebase userRef = usersRef.child(username);
-                                Map<String, Object> data = new HashMap<String, Object>();
-                                data.put("title",note.getTitle());
-                                data.put("details",note.getDetails());
-                                data.put("date",note.getSavedAt().toString());
-                                userRef.updateChildren(data);
-//
-                                finish();
+                            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                                if(databaseError == null) {
+                                    Toast toast = Toast.makeText(getApplicationContext(), "Note saved successfully", Toast.LENGTH_LONG);
+                                    toast.show();
+                                    finish();
+                                }
+                                else {
+                                    Toast toast = Toast.makeText(getApplicationContext(), "An error occured while saving the note. Error: " + databaseError.getMessage(), Toast.LENGTH_LONG);
+                                    toast.show();
+                                }
                             }
-                        }).start();
+                        });
                     }
                 }
             });
