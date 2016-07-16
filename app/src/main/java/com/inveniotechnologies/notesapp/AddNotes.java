@@ -17,6 +17,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AddNotes extends AppCompatActivity {
 
@@ -69,7 +71,10 @@ public class AddNotes extends AppCompatActivity {
                         String username = settings.getString("Username","");
                         //
                         DatabaseReference userRef = usersRef.child(username);
-                        userRef.setValue(note, new DatabaseReference.CompletionListener() {
+                        String key = userRef.push().getKey();
+                        Map<String,Object> childUpdates = new HashMap<String, Object>();
+                        childUpdates.put(key,note.toMap());
+                        userRef.updateChildren(childUpdates, new DatabaseReference.CompletionListener() {
                             @Override
                             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                                 if(databaseError == null) {
@@ -78,7 +83,7 @@ public class AddNotes extends AppCompatActivity {
                                     finish();
                                 }
                                 else {
-                                    Toast toast = Toast.makeText(getApplicationContext(), "An error occured while saving the note. Error: " + databaseError.getMessage(), Toast.LENGTH_LONG);
+                                    Toast toast = Toast.makeText(getApplicationContext(), "An error occurred while saving the note. Error: " + databaseError.getMessage(), Toast.LENGTH_LONG);
                                     toast.show();
                                 }
                             }

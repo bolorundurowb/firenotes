@@ -5,6 +5,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
@@ -17,11 +22,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
-
+    private List<Note> notesList  = new ArrayList<>();
     public static final String PREFS_NAME = "UsernameFile";
+    private RecyclerView lst_notes;
+    private NotesAdapter nAdapter;
 
 
     @Override
@@ -52,6 +62,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //
+        lst_notes = (RecyclerView) findViewById(R.id.lst_notes);
+        //
+        nAdapter = new NotesAdapter(notesList);
+        //
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        lst_notes.setLayoutManager(layoutManager);
+        lst_notes.setItemAnimator(new DefaultItemAnimator());
+        lst_notes.setAdapter(nAdapter);
+        //
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference usersRef = database.getReference("users");
         //
@@ -61,8 +80,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 if(dataSnapshot.getValue() != null) {
-                    Note note = dataSnapshot.getValue(Note.class);
-                    new Toast(getApplicationContext()).makeText(getApplicationContext(), note.toString(), Toast.LENGTH_SHORT).show();
+                    String title = (String) dataSnapshot.child("title").getValue();
+                    String details = (String) dataSnapshot.child("details").getValue();
+                    String date = (String) dataSnapshot.child("savedAt").getValue();
+                    //
+                    Note note = new Note(title,details,date);
+                    notesList.add(note);
+                    nAdapter.notifyDataSetChanged();
                 }
             }
 
