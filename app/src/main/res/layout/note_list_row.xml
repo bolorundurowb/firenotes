@@ -16,7 +16,8 @@
         android:textStyle="bold"
         android:textSize="16dp"
         android:layout_alignParentTop="true"
-        android:id="@+id/lbl_title"/>
+        android:id="@+id/lbl_title"
+        android:textColor="#000000"/>
 
     <TextView
         android:layout_width="match_parent"

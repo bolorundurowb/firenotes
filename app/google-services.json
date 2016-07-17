@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "425658288084",
+    "firebase_url": "https://androfirenotes.firebaseio.com",
+    "project_id": "androfirenotes",
+    "storage_bucket": "androfirenotes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425658288084:android:00df4f07f7b13f59",
+        "android_client_info": {
+          "package_name": "com.inveniotechnologies.notesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425658288084-1ngf3brggmb6m3c8mkq7ebgbp9g2lcsl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANe8m5Zcnarn7pbRH2naoWaZJIMyPbJNo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
