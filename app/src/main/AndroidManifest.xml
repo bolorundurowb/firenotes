@@ -38,6 +38,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.inveniotechnologies.notesapp.MainActivity" />
         </activity>
+        <activity
+            android:name=".ViewNote"
+            android:label="@string/title_activity_view_note"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.inveniotechnologies.notesapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".EditNote"
+            android:label="@string/title_activity_edit_note"
+            android:parentActivityName=".ViewNote"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.inveniotechnologies.notesapp.ViewNote" />
+        </activity>
     </application>
 
 </manifest>

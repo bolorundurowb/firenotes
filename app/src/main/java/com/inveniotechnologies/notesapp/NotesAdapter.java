@@ -42,14 +42,14 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Note note = notesList.get(position);
-        holder.title.setText(note.getTitle());
-        if(note.getDetails().length() > 49){
-            holder.details.setText(note.getDetails().substring(0,45) + " ...");
+        holder.title.setText(note.getTitle().toUpperCase());
+        if(note.getDetails().length() > 40){
+            holder.details.setText(note.getDetails().replaceAll(System.getProperty("line.separator"), "").substring(0,35) + " ...");
         }
         else {
-            holder.details.setText(note.getDetails());
+            holder.details.setText(note.getDetails().replaceAll(System.getProperty("line.separator"), ""));
         }
-        DateFormat df = new SimpleDateFormat("MM/dd HH:mm");
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         String reportDate = df.format(note.getSavedAt());
         //
         holder.date.setText(reportDate);

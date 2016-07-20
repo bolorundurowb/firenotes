@@ -3,12 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     android:background="?attr/selectableItemBackground"
     android:focusable="true">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/img_note_icon"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -17,19 +25,27 @@
         android:textSize="16dp"
         android:layout_alignParentTop="true"
         android:id="@+id/lbl_title"
-        android:textColor="#000000"/>
+        android:textColor="#000000"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/img_note_icon"
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/lbl_details"
         android:layout_below="@+id/lbl_title"
-        android:textColor="@color/colorGray"/>
+        android:textColor="@color/colorGray"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/img_note_icon"
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:id="@+id/lbl_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:textColor="@color/colorGray"/>
+        android:textColor="@color/colorGray"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp"/>
 </RelativeLayout>

@@ -84,11 +84,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 if(dataSnapshot.getValue() != null) {
-                    String title = (String) dataSnapshot.child("title").getValue();
+                    String title = dataSnapshot.child("title").getValue().toString();
                     String details = (String) dataSnapshot.child("details").getValue();
                     String date = (String) dataSnapshot.child("savedAt").getValue();
                     //
                     Note note = new Note(title,details,date);
+                    note.setNoteId(dataSnapshot.getKey());
                     notesList.add(note);
                     nAdapter.notifyDataSetChanged();
                 }
@@ -119,7 +120,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 Note note = notesList.get(position);
-                Toast.makeText(getApplicationContext(), note.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
+                //
+                Intent intent = new Intent(getApplicationContext(), ViewNote.class);
+                intent.putExtra("Note", note);
+                startActivity(intent);
             }
 
             @Override

@@ -24,18 +24,10 @@
             android:textSize="18sp"
             android:textStyle="bold"/>
 
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_marginTop="10dp"
-            android:id="@+id/txt_username"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:text="Update"
-            android:id="@+id/btn_update"/>
+            android:id="@+id/lbl_username"/>
     </LinearLayout>
 </RelativeLayout>

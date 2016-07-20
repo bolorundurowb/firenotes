@@ -2,6 +2,7 @@ package com.inveniotechnologies.notesapp;
 
 import com.google.firebase.database.Exclude;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,10 +12,19 @@ import java.util.Map;
 /**
  * Created by bolorundurowb on 05-Jul-16.
  */
-public class Note {
+public class Note implements Serializable{
+    private String NoteId;
     private String Title;
     private String Details;
     private Date SavedAt;
+
+    public String getNoteId() {
+        return NoteId;
+    }
+
+    public void setNoteId(String noteId) {
+        NoteId = noteId;
+    }
 
     public String getTitle() {
         return Title;
