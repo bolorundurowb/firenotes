@@ -2,7 +2,7 @@
 A simple android notes app using Google's Firebase as the backend
 
 ## Screenshots
-**Home **
+**Home**
 
 ![Home Activity](https://github.com/bolorundurowb/Fire-Notes/blob/master/Screenshots/01.png "Home Page")
 
