@@ -22,6 +22,7 @@ dependencies:
         - echo y | android update sdk --no-ui --all --filter extra-google-m2repository
 
     override:
+        - chmod +x gradlew
         - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
 
     cache_directories:
