@@ -1,4 +1,7 @@
 # Fire-Notes
+
+[![Stories in Ready](https://badge.waffle.io/bolorundurowb/Fire-Notes.svg?label=ready&title=Ready)](http://waffle.io/bolorundurowb/Fire-Notes)
+
 A simple android notes app using Google's Firebase as the backend
 
 ## Screenshots
@@ -6,7 +9,7 @@ A simple android notes app using Google's Firebase as the backend
 
 ![Home Activity](https://github.com/bolorundurowb/Fire-Notes/blob/master/Screenshots/01.png "Home Page")
 
-**New Fire Note**
+**New Note**
 
 ![New Note Activity](https://github.com/bolorundurowb/Fire-Notes/blob/master/Screenshots/02.png "New Note Page")
 
