@@ -44,6 +44,8 @@ test:
     # - ./gradlew clean assemble
     # - ./gradlew assemble connectedDebugAndroidTest -PdisablePreDex --console=plain --info
 
+    - chmod +x ./gradlew
+
     # This will ensure the app is build successfully with no errors before running the test
     - ./gradlew assemble
 
