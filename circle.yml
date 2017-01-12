@@ -5,13 +5,11 @@ general:
 machine:
     environment:
         ANDROID_HOME: /usr/local/android-sdk-linux
-        ADB_INSTALL_TIMEOUT: 360
-        GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx3072M -XX:+HeapDumpOnOutOfMemoryError"'
     java:
         version: oraclejdk8
 
 dependencies:
-    pre:
+    override:
         - echo y | android update sdk --no-ui --all --filter tools,platform-tools,android-25
         - echo y | android update sdk --no-ui --all --filter build-tools-25.0.0
         - echo y | android update sdk --no-ui --all --filter android-25
@@ -20,34 +18,9 @@ dependencies:
         - echo y | android update sdk --no-ui --all --filter extra-android-support
         - echo y | android update sdk --no-ui --all --filter extra-google-google_play_services
         - echo y | android update sdk --no-ui --all --filter extra-google-m2repository
-
-    override:
         - chmod +x gradlew
         - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
-
-    cache_directories:
-        - /usr/local/android-sdk-linux/tools
-        - /usr/local/android-sdk-linux/build-tools/25.0.0
 test:
   override:
-    - chmod +x gradlew
-    - ./gradlew assemble
-    - ./gradlew test
-
-
-
-  post:
-      # junit xml report:
-      - mkdir -p $CIRCLE_TEST_REPORTS/junit-xml/
-      - find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit-xml/ \;
-
-      # junit html report:
-      - mkdir -p $CIRCLE_TEST_REPORTS/junit-html/
-      - cp -r app/build/outputs/ $CIRCLE_TEST_REPORTS/junit-html/
-
-      # lint report:
-      - mkdir -p $CIRCLE_TEST_REPORTS/lint/
-      - find . -type f -regex ".*/build/outputs/.*html" -exec cp {} $CIRCLE_TEST_REPORTS/lint/ \;
-
-      # Artifact - APK's
-      - cp -r app/build/outputs $CIRCLE_ARTIFACTS
+       - (./gradlew assemble):
+                timeout: 360
