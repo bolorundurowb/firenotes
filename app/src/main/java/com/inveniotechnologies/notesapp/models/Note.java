@@ -1,4 +1,4 @@
-package com.inveniotechnologies.notesapp;
+package com.inveniotechnologies.notesapp.models;
 
 import com.google.firebase.database.Exclude;
 
@@ -12,11 +12,20 @@ import java.util.Map;
 /**
  * Created by bolorundurowb on 05-Jul-16.
  */
-public class Note implements Serializable{
+public class Note implements Serializable {
     private String NoteId;
     private String Title;
     private String Details;
     private Date SavedAt;
+    private boolean IsStarred;
+
+    public boolean isStarred() {
+        return IsStarred;
+    }
+
+    public void setStarred(boolean starred) {
+        IsStarred = starred;
+    }
 
     public String getNoteId() {
         return NoteId;
@@ -49,10 +58,8 @@ public class Note implements Serializable{
     public void setSavedAt(Date savedAt) {
         SavedAt = savedAt;
     }
-    //
-    public Note(){
 
-    }
+    public Note() { }
 
     public Note(String title, String details, String date) {
         this.setTitle(title);
@@ -64,8 +71,9 @@ public class Note implements Serializable{
         catch (ParseException | NullPointerException e){
             this.setSavedAt(new Date());
         }
+        this.setStarred(false);
     }
-    //
+
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();

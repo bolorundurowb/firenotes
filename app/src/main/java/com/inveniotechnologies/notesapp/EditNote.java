@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 
+import com.inveniotechnologies.notesapp.models.Note;
+
 public class EditNote extends AppCompatActivity {
     private EditText txt_title;
     private EditText txt_details;
