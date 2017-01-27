@@ -1,15 +1,17 @@
-package com.inveniotechnologies.notesapp;
+package com.inveniotechnologies.notesapp.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.inveniotechnologies.notesapp.R;
+import com.inveniotechnologies.notesapp.models.Note;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,12 +22,14 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView title, details, date;
+        public ImageView star;
 
         public MyViewHolder(View view){
             super(view);
             title = (TextView) view.findViewById(R.id.lbl_title);
             details = (TextView) view.findViewById(R.id.lbl_details);
             date = (TextView) view.findViewById(R.id.lbl_date);
+            star = (ImageView) view.findViewById(R.id.img_note_star);
         }
     }
 
@@ -43,11 +47,9 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Note note = notesList.get(position);
         holder.title.setText(note.getTitle().toUpperCase());
-        if(note.getDetails().length() > 40){
-            holder.details.setText(note.getDetails().replaceAll(System.getProperty("line.separator"), "").substring(0,35) + " ...");
-        }
-        else {
-            holder.details.setText(note.getDetails().replaceAll(System.getProperty("line.separator"), ""));
+        holder.details.setText(note.getDetails());
+        if (note.isStarred()) {
+            holder.star.setBackgroundResource(R.drawable.ic_star);
         }
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         String reportDate = df.format(note.getSavedAt());

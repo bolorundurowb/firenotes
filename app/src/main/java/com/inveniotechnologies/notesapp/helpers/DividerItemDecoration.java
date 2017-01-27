@@ -1,4 +1,4 @@
-package com.inveniotechnologies.notesapp;
+package com.inveniotechnologies.notesapp.helpers;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -13,7 +13,7 @@ import android.view.View;
  * Created by bolorundurowb on 17-Jul-16.
  */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
-    private static final int[] ATTRS = new int[]{
+    private static final int[] ATTRS = new int[] {
             android.R.attr.listDivider
     };
 

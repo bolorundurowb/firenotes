@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.inveniotechnologies.notesapp.models.Note;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -43,13 +44,10 @@ public class AddNotes extends AppCompatActivity {
                     //
                     String title = txt_note_title.getText().toString();
                     if (title.matches("")) {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(AddNotes.this);
-                        builder.setMessage("You have not entered a Fire Note title").setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //
-                            }
-                        });
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AddNotes.this)
+                                .setMessage("You have not entered a Fire Note title")
+                                .setCancelable(false)
+                                .setPositiveButton("OK", null);
                         AlertDialog ad = builder.create();
                         ad.setTitle("Incomplete Info");
                         ad.show();
@@ -63,6 +61,7 @@ public class AddNotes extends AppCompatActivity {
                         note.setDetails(txt_note_details.getText().toString());
                         note.setTitle(txt_note_title.getText().toString());
                         note.setSavedAt(new Date());
+                        note.setStarred(false);
                         //
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference usersRef = database.getReference("users");
@@ -73,7 +72,7 @@ public class AddNotes extends AppCompatActivity {
                         DatabaseReference userRef = usersRef.child(username);
                         String key = userRef.push().getKey();
                         Map<String,Object> childUpdates = new HashMap<String, Object>();
-                        childUpdates.put(key,note.toMap());
+                        childUpdates.put(key, note.toMap());
                         userRef.updateChildren(childUpdates, new DatabaseReference.CompletionListener() {
                             @Override
                             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {

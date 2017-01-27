@@ -25,27 +25,44 @@
         android:textSize="16dp"
         android:layout_alignParentTop="true"
         android:id="@+id/lbl_title"
-        android:textColor="#000000"
+        android:textColor="@color/colorPrimaryText"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/img_note_icon"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:maxLength="20"
+        android:ellipsize="end"
+        android:maxLines="1"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/lbl_details"
         android:layout_below="@+id/lbl_title"
-        android:textColor="@color/colorGray"
+        android:textColor="@color/colorSecondaryText"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/img_note_icon"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:maxLength="30"
+        android:ellipsize="end"
+        android:maxLines="1"/>
 
     <TextView
         android:id="@+id/lbl_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:textColor="@color/colorGray"
-        android:layout_marginTop="10dp"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_marginTop="5dp"
+        android:textSize="12sp"/>
+
+    <ImageView
+        android:id="@+id/img_note_star"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/lbl_date"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_star_outline"
         android:textSize="12sp"/>
 </RelativeLayout>
