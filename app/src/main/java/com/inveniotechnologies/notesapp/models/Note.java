@@ -61,7 +61,7 @@ public class Note implements Serializable {
 
     public Note() { }
 
-    public Note(String title, String details, String date) {
+    public Note(String title, String details, String date, boolean isStarred) {
         this.setTitle(title);
         this.setDetails(details);
         SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd yyyy HH:mm:ss zzz");
@@ -71,7 +71,7 @@ public class Note implements Serializable {
         catch (ParseException | NullPointerException e){
             this.setSavedAt(new Date());
         }
-        this.setStarred(false);
+        this.setStarred(isStarred);
     }
 
     @Exclude
@@ -80,7 +80,7 @@ public class Note implements Serializable {
         result.put("title", getTitle());
         result.put("details", getDetails());
         result.put("savedAt", getSavedAt().toString());
-
+        result.put("isStarred", isStarred());
         return result;
     }
 }

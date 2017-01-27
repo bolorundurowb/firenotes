@@ -86,8 +86,9 @@ public class MainActivity extends AppCompatActivity {
                     String title = dataSnapshot.child("title").getValue().toString();
                     String details = (String) dataSnapshot.child("details").getValue();
                     String date = (String) dataSnapshot.child("savedAt").getValue();
+                    boolean isSaved = (boolean) dataSnapshot.child("isStarred").getValue();
                     //
-                    Note note = new Note(title,details,date);
+                    Note note = new Note(title, details, date, isSaved);
                     note.setNoteId(dataSnapshot.getKey());
                     notesList.add(note);
                     nAdapter.notifyDataSetChanged();
