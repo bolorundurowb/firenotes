@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Fire Notes</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_add_notes">New Fire Note</string>
-    <string name="title_activity_settings">Settings</string>
-    <string name="title_activity_edit_note">Edit Note</string>
-    <string name="title_activity_view_note">View Note</string>
-
-</resources>
