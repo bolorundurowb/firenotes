@@ -8,7 +8,7 @@ namespace firenotes
         {
             InitializeComponent();
 
-            MainPage = new firenotesPage();
+            MainPage = null;
         }
 
         protected override void OnStart()
