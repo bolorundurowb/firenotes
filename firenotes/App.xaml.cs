@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using firenotes.Views;
+using Xamarin.Forms;
 
 namespace firenotes
 {
@@ -8,7 +9,7 @@ namespace firenotes
         {
             InitializeComponent();
 
-            MainPage = null;
+            MainPage = new SignInPage();
         }
 
         protected override void OnStart()
