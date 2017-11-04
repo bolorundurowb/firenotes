@@ -8,8 +8,15 @@ namespace firenotes
         public App()
         {
             InitializeComponent();
+            var nav = new NavigationPage(new SignInPage());
+            nav.BarBackgroundColor = Color.FromHex("#FF9800");
 
-            MainPage = new NavigationPage(new SignInPage());
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                nav.BarTextColor = Color.Black;
+            }
+
+            MainPage = nav;
         }
 
         protected override void OnStart()

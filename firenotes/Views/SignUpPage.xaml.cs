@@ -10,6 +10,7 @@ namespace firenotes.Views
         public SignUpPage()
         {
             InitializeComponent();
+            this.Title = "Sign Up";
         }
     }
 }

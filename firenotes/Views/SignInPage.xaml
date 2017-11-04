@@ -8,13 +8,11 @@
         <StackLayout
             Orientation="Vertical"
             VerticalOptions="Fill">
-            <Label Text="Sign In" HorizontalOptions="Center" FontSize="25" Margin="0, 20, 0, 20" FontAttributes="Bold"/>
-            
-            <Label Text="Username:" />
-            <Entry x:Name="txtUsername" HorizontalOptions="Fill" HeightRequest="35" />
+            <Label Text="Username:" Margin="0, 30, 0 ,0" />
+            <Entry x:Name="txtUsername" HorizontalOptions="Fill" HeightRequest="40" />
             
             <Label Text="Password:" Margin="0, 10, 0, 0"/>
-            <Entry x:Name="txtPassword" HorizontalOptions="Fill" HeightRequest="35" IsPassword="true" />
+            <Entry x:Name="txtPassword" HorizontalOptions="Fill" HeightRequest="40" IsPassword="true" />
             
             <Button x:Name="btnSignIn" Text="Sign In" Margin="0, 20" HorizontalOptions="Center" Clicked="SignIn"/>
 
@@ -22,7 +20,7 @@
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
                 <Label Text="don't have an account? " FontSize="15"/>
-                <Label x:Name="lblsignUp" Text="sign up!" TextColor="#0080FF" FontSize="15" />
+                <Label x:Name="lblsignUp" Text="sign up!" TextColor="#FF9800" FontSize="15" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
