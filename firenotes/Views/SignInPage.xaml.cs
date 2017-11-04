@@ -10,6 +10,17 @@ namespace firenotes.Views
         public SignInPage()
         {
             InitializeComponent();
+            lblsignUp.GestureRecognizers.Add(new TapGestureRecognizer((view) => GoToSignUp()));
+        }
+
+        protected void SignIn(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GoToSignUp()
+        {
+            DisplayAlert("Hello", "World", "OK");
         }
     }
 }
