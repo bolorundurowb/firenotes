@@ -26,12 +26,30 @@ namespace firenotes.Views
 
         protected void SignIn(object sender, EventArgs e)
         {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
 
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                DisplayError("Sorry, the username field cannot be empty.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(password))
+            {
+                DisplayError("Sorry, the password field cannot be empty.");
+                return;
+            }
         }
 
         protected void GoToSignUp()
         {
             Navigation.PushAsync(new SignUpPage());
+        }
+
+        private void DisplayError(string message)
+        {
+            DisplayAlert("Error", message, "OK");
         }
     }
 }
