@@ -2,7 +2,23 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="firenotes.Views.SignInPage">
-	<ContentPage.Content>
-	</ContentPage.Content>
+    x:Class="firenotes.Views.SignInPage"
+    Padding="20">
+    <ContentPage.Content>
+        <StackLayout
+            Orientation="Vertical"
+            VerticalOptions="FillAndExpand">
+            <Label Text="Sign In" HorizontalOptions="Center" FontSize="25" Margin="0, 20, 0, 20" FontAttributes="Bold"/>
+            <Label Text="Username:" />
+            <Entry HorizontalOptions="Fill" HeightRequest="35" />
+            <Label Text="Password:" Margin="0, 10, 0, 0"/>
+            <Entry HorizontalOptions="Fill" HeightRequest="35" />
+            <Button Text="Sign In" Margin="0, 20" HorizontalOptions="Center"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
+                <Label Text="don't have an account? " FontSize="15"/>
+                <Label Text="sign up!" TextColor="#0080FF" FontSize="15" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
