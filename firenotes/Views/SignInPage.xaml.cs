@@ -20,7 +20,7 @@ namespace firenotes.Views
 
         protected void GoToSignUp()
         {
-            DisplayAlert("Hello", "World", "OK");
+            Navigation.PushAsync(new SignUpPage());
         }
     }
 }

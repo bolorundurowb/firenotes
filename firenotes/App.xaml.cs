@@ -9,7 +9,7 @@ namespace firenotes
         {
             InitializeComponent();
 
-            MainPage = new SignInPage();
+            MainPage = new NavigationPage(new SignInPage());
         }
 
         protected override void OnStart()
