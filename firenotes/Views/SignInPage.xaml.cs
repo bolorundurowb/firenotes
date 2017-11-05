@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Firebase.Auth;
 using Xamarin.Forms;
 
 namespace firenotes.Views
@@ -43,6 +43,18 @@ namespace firenotes.Views
 
             this.spnrLoading.IsVisible = true;
             this.btnSignIn.IsEnabled = false;
+
+            try
+            {
+                App.authLink = App.authProvider.SignInWithEmailAndPasswordAsync(email, password);
+
+                this.spnrLoading.IsVisible = false;
+                this.btnSignIn.IsEnabled = true;
+            }
+            catch (FirebaseAuthException e)
+            {
+
+            }
         }
 
         protected void GoToSignUp()
