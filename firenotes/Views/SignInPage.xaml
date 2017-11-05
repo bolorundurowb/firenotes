@@ -16,7 +16,7 @@
             
             <Button x:Name="btnSignIn" Text="Sign In" Margin="0, 20" HorizontalOptions="Center" Clicked="SignIn"/>
 
-            <ActivityIndicator x:Name="spnrLoading" IsVisible="true" HorizontalOptions="Center" WidthRequest="20" HeightRequest="20" IsRunning="true" Color="#FF9800"/>
+            <ActivityIndicator x:Name="spnrLoading" IsVisible="false" HorizontalOptions="Center" WidthRequest="20" HeightRequest="20" IsRunning="true" Color="#FF9800"/>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
                 <Label Text="don't have an account? " FontSize="15"/>

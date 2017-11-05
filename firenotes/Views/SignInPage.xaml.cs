@@ -40,6 +40,9 @@ namespace firenotes.Views
                 DisplayError("Sorry, the password field cannot be empty.");
                 return;
             }
+
+            this.spnrLoading.IsVisible = true;
+            this.btnSignIn.IsEnabled = false;
         }
 
         protected void GoToSignUp()
