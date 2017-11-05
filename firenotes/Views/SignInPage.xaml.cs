@@ -26,12 +26,12 @@ namespace firenotes.Views
 
         protected void SignIn(object sender, EventArgs e)
         {
-            string username = txtUsername.Text;
+            string email = txtEmail.Text;
             string password = txtPassword.Text;
 
-            if (string.IsNullOrWhiteSpace(username))
+            if (string.IsNullOrWhiteSpace(email))
             {
-                DisplayError("Sorry, the username field cannot be empty.");
+                DisplayError("Sorry, the email field cannot be empty.");
                 return;
             }
 
