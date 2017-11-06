@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Firebase.Auth;
+using Firebase.Database;
 using Xamarin.Forms;
 
 namespace firenotes.Views
@@ -44,17 +46,17 @@ namespace firenotes.Views
             this.spnrLoading.IsVisible = true;
             this.btnSignIn.IsEnabled = false;
 
-            try
+            App.AuthLink = App.AuthProvider.SignInWithEmailAndPasswordAsync(email, password);
+            var firebase = new FirebaseClient(App.FirebaseUrl, new FirebaseOptions()
             {
-                App.authLink = App.authProvider.SignInWithEmailAndPasswordAsync(email, password);
+                AuthTokenAsyncFactory = () => new Task<string>(() => App.AuthLink.Result.FirebaseToken)
+            });
 
-                this.spnrLoading.IsVisible = false;
-                this.btnSignIn.IsEnabled = true;
-            }
-            catch (FirebaseAuthException e)
-            {
+            var dinos = firebase.Child("users").OnceAsync<object>();
 
-            }
+            this.spnrLoading.IsVisible = false;
+            this.btnSignIn.IsEnabled = true;
+
         }
 
         protected void GoToSignUp()

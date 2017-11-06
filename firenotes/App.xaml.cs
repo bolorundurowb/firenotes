@@ -8,10 +8,10 @@ namespace firenotes
     public partial class App : Application
     {
         private const string apiKey = "";
-        public string FirebaseUrl => "https://androfirenotes.firebaseio.com/";
+        public static string FirebaseUrl => "https://androfirenotes.firebaseio.com/";
 
-        public static FirebaseAuthProvider authProvider;
-        public static Task<FirebaseAuthLink> authLink;
+        public static FirebaseAuthProvider AuthProvider;
+        public static Task<FirebaseAuthLink> AuthLink;
 
         public App()
         {
@@ -30,7 +30,7 @@ namespace firenotes
             MainPage = nav;
 
             // set up auth
-            authProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
+            AuthProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
         }
 
         protected override void OnStart()
