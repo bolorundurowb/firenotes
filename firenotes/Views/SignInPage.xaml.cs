@@ -44,18 +44,6 @@ namespace firenotes.Views
 
             this.spnrLoading.IsVisible = true;
             this.btnSignIn.IsEnabled = false;
-
-            //App.AuthLink = App.AuthProvider.SignInWithEmailAndPasswordAsync(email, password);
-            //var firebase = new FirebaseClient(App.FirebaseUrl, new FirebaseOptions()
-            //{
-            //    AuthTokenAsyncFactory = () => new Task<string>(() => App.AuthLink.Result.FirebaseToken)
-            //});
-
-            //var dinos = firebase.Child("users").OnceAsync<object>();
-
-            //this.spnrLoading.IsVisible = false;
-            //this.btnSignIn.IsEnabled = true;
-
         }
 
         protected void GoToSignUp()
