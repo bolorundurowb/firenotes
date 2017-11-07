@@ -18,4 +18,4 @@ A simple android notes app using Google's Firebase as the backend
 **Home**
 
 ![Home](https://github.com/bolorundurowb/firenotes/blob/feature/%2330/home-page-ui/Screenshots/android/home.png)
-![Home](https://github.com/bolorundurowb/firenotes/blob/feature/%2330/home-page-ui/Screenshots/android/home.png)
+![Home](https://github.com/bolorundurowb/firenotes/blob/feature/%2330/home-page-ui/Screenshots/ios/home.png)
