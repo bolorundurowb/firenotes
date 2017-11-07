@@ -1,7 +1,5 @@
 ﻿{
   "dependencies": {
-    "FirebaseAuthentication.net": "3.0.5",
-    "FirebaseDatabase.net": "3.0.3",
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
     "NETStandard.Library": "2.0.1",
     "Xamarin.Forms": "2.4.0.38779"

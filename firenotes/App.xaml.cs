@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Firebase.Auth;
+//using Firebase.Auth;
 using firenotes.Views;
 using Xamarin.Forms;
 
@@ -10,8 +10,8 @@ namespace firenotes
         private const string apiKey = "";
         public static string FirebaseUrl => "https://androfirenotes.firebaseio.com/";
 
-        public static FirebaseAuthProvider AuthProvider;
-        public static Task<FirebaseAuthLink> AuthLink;
+        //public static FirebaseAuthProvider AuthProvider;
+        //public static Task<FirebaseAuthLink> AuthLink;
 
         public App()
         {
@@ -30,7 +30,7 @@ namespace firenotes
             MainPage = nav;
 
             // set up auth
-            AuthProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
+            //AuthProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
         }
 
         protected override void OnStart()
