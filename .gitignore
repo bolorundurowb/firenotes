@@ -41,3 +41,8 @@ Thumbs.db
 
 # Rider
 .idea/
+
+# Nuget things
+firenotes.nuget.props
+firenotes.nuget.targets
+project.lock.json
