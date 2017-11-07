@@ -6,25 +6,16 @@ A simple android notes app using Google's Firebase as the backend
 
 ## Screenshots
 **Sign In**
+
 ![Sign In](https://github.com/bolorundurowb/firenotes/blob/feature/%2330/home-page-ui/Screenshots/android/signin.png)
 ![Sign In](https://github.com/bolorundurowb/firenotes/blob/feature/%2330/home-page-ui/Screenshots/ios/signin.png)
 
 **Sign Up**
-![Sign Up](https://github.com/bolorundurowb/Fire-Notes/blob/master/Screenshots/android/signin.png)
-![Sign Up](https://github.com/bolorundurowb/Fire-Notes/blob/master/Screenshots/ios/signin.png)
+
+![Sign Up](https://github.com/bolorundurowb/firenotes/blob/feature/%2330/home-page-ui/Screenshots/android/signup.png)
+![Sign Up](https://github.com/bolorundurowb/firenotes/blob/feature/%2330/home-page-ui/Screenshots/ios/signup.png)
 
 **Home**
 
-![Home Activity](https://github.com/bolorundurowb/Fire-Notes/blob/master/Screenshots/01.png "Home Page")
-
-**New Note**
-
-![New Note Activity](https://github.com/bolorundurowb/Fire-Notes/blob/master/Screenshots/02.png "New Note Page")
-
-**View Note**
-
-![View Activity](https://github.com/bolorundurowb/Fire-Notes/blob/master/Screenshots/03.png "View Note Page")
-
-**Edit Fire Note**
-
-![Edit Note Activity](https://github.com/bolorundurowb/Fire-Notes/blob/master/Screenshots/04.png "Edit Note Page")
+![Home](https://github.com/bolorundurowb/firenotes/blob/feature/%2330/home-page-ui/Screenshots/android/home.png)
+![Home](https://github.com/bolorundurowb/firenotes/blob/feature/%2330/home-page-ui/Screenshots/android/home.png)
