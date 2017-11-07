@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Xamarin.Forms;
 
@@ -23,7 +24,7 @@ namespace firenotes.Views
             }
         }
 
-        protected void SignUp(object sender, EventArgs e)
+        protected async void SignUp(object sender, EventArgs e)
         {
             string firstName = txtFirstname.Text;
             string surname = txtSurname.Text;
@@ -58,6 +59,9 @@ namespace firenotes.Views
             this.spnrLoading.IsVisible = true;
             this.btnSignUp.IsEnabled = false;
 
+            // Navigate to the home page
+            Navigation.InsertPageBefore(new HomePage(), Navigation.NavigationStack.First());
+            await Navigation.PopToRootAsync();
         }
 
         private void DisplayError(string message)

@@ -25,7 +25,7 @@ namespace firenotes.Views
             }
         }
 
-        protected void SignIn(object sender, EventArgs e)
+        protected async void SignIn(object sender, EventArgs e)
         {
             string email = txtEmail.Text;
             string password = txtPassword.Text;
@@ -44,6 +44,10 @@ namespace firenotes.Views
 
             this.spnrLoading.IsVisible = true;
             this.btnSignIn.IsEnabled = false;
+
+            // Navigate to the home page
+            Navigation.InsertPageBefore(new HomePage(), this);
+            await Navigation.PopAsync();
         }
 
         protected void GoToSignUp()
