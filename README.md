@@ -13,12 +13,18 @@ A simple android notes app using Google's Firebase as the backend
 
 **Sign Up**
 
-![Sign Up](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/android/signup.png) ![Sign Up](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/ios/signup.png)
+| Android | iOS|
+| --- | --- |
+| ![Sign Up](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/android/signup.png) | ![Sign Up](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/ios/signup.png) |
 
 **Home**
 
-![Home](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/android/home.png) ![Home](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/ios/home.png)
+| Android | iOS|
+| --- | --- |
+| ![Home](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/android/home.png) | ![Home](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/ios/home.png) |
 
 **New Note**
 
-![Home](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/android/new-note.png) ![Home](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/ios/new-note.png)
+| Android | iOS|
+| --- | --- |
+| ![Home](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/android/new-note.png) | ![Home](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/ios/new-note.png) |
