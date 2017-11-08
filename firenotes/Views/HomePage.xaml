@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
+    x:Class="firenotes.Views.HomePage"
+    Padding="20, 5, 20, 5">
+	<ContentPage.Content>
+        <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <ListView 
+                          AbsoluteLayout.LayoutFlags="All"
+                          AbsoluteLayout.LayoutBounds="0,0,1,1">
+
+            </ListView>
+            <controls:FloatingActionButton
+                x:Name="fabAddNote" 
+                WidthRequest="60"
+                HeightRequest="60" 
+                Image="ic_add_white.png"
+                ButtonColor="#FF9800"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
+                Margin="0, 0, 0, 10"/>
+        </AbsoluteLayout>
+	</ContentPage.Content>
+</ContentPage>

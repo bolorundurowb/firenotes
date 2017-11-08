@@ -25,25 +25,29 @@ namespace firenotes.Views
             }
         }
 
-        protected void SignIn(object sender, EventArgs e)
+        protected async void SignIn(object sender, EventArgs e)
         {
             string email = txtEmail.Text;
             string password = txtPassword.Text;
 
-            if (string.IsNullOrWhiteSpace(email))
-            {
-                DisplayError("Sorry, the email field cannot be empty.");
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace(email))
+            //{
+            //    DisplayError("Sorry, the email field cannot be empty.");
+            //    return;
+            //}
 
-            if (string.IsNullOrEmpty(password))
-            {
-                DisplayError("Sorry, the password field cannot be empty.");
-                return;
-            }
+            //if (string.IsNullOrEmpty(password))
+            //{
+            //    DisplayError("Sorry, the password field cannot be empty.");
+            //    return;
+            //}
 
             this.spnrLoading.IsVisible = true;
             this.btnSignIn.IsEnabled = false;
+
+            // Navigate to the home page
+            Navigation.InsertPageBefore(new HomePage(), this);
+            await Navigation.PopAsync();
         }
 
         protected void GoToSignUp()
