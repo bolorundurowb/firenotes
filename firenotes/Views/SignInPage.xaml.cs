@@ -30,17 +30,17 @@ namespace firenotes.Views
             string email = txtEmail.Text;
             string password = txtPassword.Text;
 
-            if (string.IsNullOrWhiteSpace(email))
-            {
-                DisplayError("Sorry, the email field cannot be empty.");
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace(email))
+            //{
+            //    DisplayError("Sorry, the email field cannot be empty.");
+            //    return;
+            //}
 
-            if (string.IsNullOrEmpty(password))
-            {
-                DisplayError("Sorry, the password field cannot be empty.");
-                return;
-            }
+            //if (string.IsNullOrEmpty(password))
+            //{
+            //    DisplayError("Sorry, the password field cannot be empty.");
+            //    return;
+            //}
 
             this.spnrLoading.IsVisible = true;
             this.btnSignIn.IsEnabled = false;
