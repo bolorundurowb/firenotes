@@ -7,7 +7,7 @@ A simple android notes app using Google's Firebase as the backend
 ## Screenshots
 **Sign In**
 
-![Sign In](https://github.com/bolorundurowb/firenotes/blob/feature/%2330/home-page-ui/Screenshots/android/signin.png)
+![Sign In](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/android/signin.png)
 ![Sign In](https://github.com/bolorundurowb/firenotes/blob/feature/%2330/home-page-ui/Screenshots/ios/signin.png)
 
 **Sign Up**
