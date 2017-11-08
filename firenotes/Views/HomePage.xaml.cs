@@ -16,7 +16,7 @@ namespace firenotes.Views
 
         protected async void AddNote(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new NewNotePage());
         }
     }
 }

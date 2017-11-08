@@ -4,12 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
     x:Class="firenotes.Views.HomePage"
-    Padding="20, 5, 20, 5">
+    Padding="0, 5, 20, 5">
 	<ContentPage.Content>
         <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                <ListView 
-                          AbsoluteLayout.LayoutFlags="All"
-                          AbsoluteLayout.LayoutBounds="0,0,1,1">
+             <ListView 
+                  AbsoluteLayout.LayoutFlags="All"
+                  AbsoluteLayout.LayoutBounds="0,0,1,1">
 
             </ListView>
             <controls:FloatingActionButton
