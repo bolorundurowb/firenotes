@@ -20,7 +20,8 @@
                 ButtonColor="#FF9800"
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
-                Margin="0, 0, 0, 10"/>
+                Margin="0, 0, 0, 10"
+                Clicked="AddNote"/>
         </AbsoluteLayout>
 	</ContentPage.Content>
 </ContentPage>

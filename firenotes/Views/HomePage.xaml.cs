@@ -13,5 +13,10 @@ namespace firenotes.Views
 
             this.Title = "Your Notes";
         }
+
+        protected async void AddNote(object sender, EventArgs e)
+        {
+
+        }
     }
 }
