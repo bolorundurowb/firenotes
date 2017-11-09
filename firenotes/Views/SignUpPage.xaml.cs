@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Firebase.Auth;
 using Xamarin.Forms;
 
 namespace firenotes.Views
@@ -59,9 +59,40 @@ namespace firenotes.Views
             this.spnrLoading.IsVisible = true;
             this.btnSignUp.IsEnabled = false;
 
-            // Navigate to the home page
-            Navigation.InsertPageBefore(new HomePage(), Navigation.NavigationStack.First());
-            await Navigation.PopToRootAsync();
+            try
+            {
+                App.AuthLink = await App.AuthProvider.CreateUserWithEmailAndPasswordAsync(email, password, $"{firstName} {surname}", true);
+
+                this.spnrLoading.IsVisible = false;
+                this.btnSignUp.IsEnabled = true;
+
+                // Navigate to the home page
+                Navigation.InsertPageBefore(new HomePage(), Navigation.NavigationStack.First());
+                await Navigation.PopToRootAsync();
+            }
+            catch (FirebaseAuthException ex)
+            {
+                if (ex.Reason == AuthErrorReason.EmailExists)
+                {
+                    DisplayError("Sorry, the email address provided already exists. Please login.");
+                }
+                else if (ex.Reason == AuthErrorReason.WeakPassword)
+                {
+                    DisplayError("Sorry, the password provided is too weak.");
+                }
+                else if (ex.Reason == AuthErrorReason.InvalidEmailAddress)
+                {
+                    DisplayError("Sorry, the email address provided is invalid");
+                }
+                else
+                {
+                    DisplayError("Sorry, an error occurred. Please try again.");
+                }
+
+                this.spnrLoading.IsVisible = false;
+                this.btnSignUp.IsEnabled = true;
+
+            }
         }
 
         private void DisplayError(string message)
