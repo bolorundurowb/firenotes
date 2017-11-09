@@ -60,6 +60,7 @@
     <Compile Include="Views\NewNotePage.xaml.cs">
       <DependentUpon>NewNotePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NoteDetailsPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels" />

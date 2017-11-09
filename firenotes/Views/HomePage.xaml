@@ -8,8 +8,11 @@
 	<ContentPage.Content>
         <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
              <ListView 
-                  AbsoluteLayout.LayoutFlags="All"
-                  AbsoluteLayout.LayoutBounds="0,0,1,1">
+                x:Name="lstNotes"
+                ItemsSource="{Binding Items}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                ItemTapped="Handle_ItemTapped">
 
             </ListView>
             <controls:FloatingActionButton
