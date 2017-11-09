@@ -8,4 +8,4 @@ before_build:
     nuget restore .\firenotes.sln
 build:
   project: .\firenotes.sln
-  verbosity: verbose
+  verbosity: quiet
