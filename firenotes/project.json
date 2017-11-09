@@ -1,5 +1,7 @@
 ﻿{
   "dependencies": {
+    "FirebaseAuthentication.net": "3.0.5",
+    "FirebaseDatabase.net": "3.0.3",
     "SuaveControls.FloatingActionButton": "2017.10.17",
     "Xamarin.Forms": "2.4.0.38779"
   },
