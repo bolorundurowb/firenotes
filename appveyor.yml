@@ -11,6 +11,8 @@ environment:
 before_build:
 - ps: >-
     nuget restore .\firenotes.sln
+- appveyor RegisterXamarinLicense -Email %xamarin_email% -Password %xamarin_password% -Product iOS
+- appveyor RegisterXamarinLicense -Email %xamarin_email% -Password %xamarin_password% -Product Android
 build:
   project: .\firenotes.sln
   verbosity: quiet
