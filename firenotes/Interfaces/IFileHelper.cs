@@ -2,6 +2,6 @@
 {
     public interface IFileHelper
     {
-        string GetLocalFilePath(string fileName);
+        string GetLocalFilePath(string filename);
     }
 }

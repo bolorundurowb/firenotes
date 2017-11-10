@@ -3,6 +3,8 @@ namespace firenotes.Models
 {
     public class User
     {
+        public int ID { get; set; }
+
         public string Firstname { get; set; }
 
         public string Surname { get; set; }
@@ -11,9 +13,6 @@ namespace firenotes.Models
 
         public string Password { get; set; }
 
-        public User()
-        {
-
-        }
+        public User() { }
     }
 }
