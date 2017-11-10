@@ -60,10 +60,16 @@
     <Compile Include="Views\NewNotePage.xaml.cs">
       <DependentUpon>NewNotePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IFileHelper.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="AuthDatabase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels" />
     <Folder Include="Views\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />

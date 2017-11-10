@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Firebase.Auth;
+﻿using Firebase.Auth;
+using firenotes.Interfaces;
 using firenotes.Views;
 using Xamarin.Forms;
 
@@ -7,11 +7,20 @@ namespace firenotes
 {
     public partial class App : Application
     {
-        private const string apiKey = "AIzaSyBzzRm1srycpi4a2qx2l4AUoeMzoYxJwu0";
-        public static string FirebaseUrl => "https://androfirenotes.firebaseio.com/";
-
+        private static AuthDatabase _database;
         public static FirebaseAuthProvider AuthProvider;
         public static FirebaseAuthLink AuthLink;
+        public static AuthDatabase AuthDatabase
+        {
+            get
+            {
+                if (_database == null)
+                {
+                    _database = new AuthDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath(Constants.DbFileName));
+                }
+                return _database;
+            }
+        }
 
         public App()
         {
@@ -30,7 +39,7 @@ namespace firenotes
             MainPage = nav;
 
             // set up auth
-            AuthProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
+            AuthProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.ApiKey));
         }
 
         protected override void OnStart()
