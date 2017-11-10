@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Firebase.Auth;
 using Xamarin.Forms;
@@ -69,6 +68,15 @@ namespace firenotes.Views
                 // Navigate to the home page
                 Navigation.InsertPageBefore(new HomePage(), Navigation.NavigationStack.First());
                 await Navigation.PopToRootAsync();
+
+                // persist the user in storage
+                await App.AuthDatabase.SaveUserAsync(new Models.User
+                {
+                    Firstname = App.AuthLink.User.FirstName,
+                    Surname = App.AuthLink.User.LastName,
+                    Email = email,
+                    Password = password
+                });
             }
             catch (FirebaseAuthException ex)
             {

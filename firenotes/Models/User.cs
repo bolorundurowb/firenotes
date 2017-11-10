@@ -1,5 +1,4 @@
-﻿using System;
-namespace firenotes.Models
+﻿namespace firenotes.Models
 {
     public class User
     {

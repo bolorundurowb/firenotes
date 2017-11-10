@@ -10,7 +10,7 @@ namespace firenotes
         private static AuthDatabase _database;
         public static FirebaseAuthProvider AuthProvider;
         public static FirebaseAuthLink AuthLink;
-        static AuthDatabase AuthDatabase
+        public static AuthDatabase AuthDatabase
         {
             get
             {

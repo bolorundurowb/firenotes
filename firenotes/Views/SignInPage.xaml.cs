@@ -53,6 +53,15 @@ namespace firenotes.Views
                 // Navigate to the home page
                 Navigation.InsertPageBefore(new HomePage(), this);
                 await Navigation.PopAsync();
+
+                // persist the user in storage
+                await App.AuthDatabase.SaveUserAsync(new Models.User
+                {
+                    Firstname = App.AuthLink.User.FirstName,
+                    Surname = App.AuthLink.User.LastName,
+                    Email = email,
+                    Password = password
+                });
             }
             catch (FirebaseAuthException ex)
             {
