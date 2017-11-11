@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Firebase.Auth;
 using Xamarin.Forms;
 
@@ -10,6 +11,7 @@ namespace firenotes.Views
         {
             InitializeComponent();
             this.Title = "Sign In";
+
             lblsignUp.GestureRecognizers.Add(new TapGestureRecognizer((view) => GoToSignUp()));
 
             if (Device.RuntimePlatform == Device.iOS)
@@ -20,6 +22,17 @@ namespace firenotes.Views
             {
                 btnSignIn.BackgroundColor = Color.FromHex("#FF9800");
                 btnSignIn.TextColor = Color.White;
+            }
+        }
+
+        protected override void OnAppearing()
+        {
+            var user = App.AuthDatabase.GetUser();
+            if (user != null)
+            {
+                // Navigate to the home page
+                Navigation.InsertPageBefore(new HomePage(), this);
+                Navigation.PopAsync();
             }
         }
 
