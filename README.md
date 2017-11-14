@@ -1,6 +1,6 @@
 # Fire-Notes
 
-[![Stories in Ready](https://badge.waffle.io/bolorundurowb/Fire-Notes.svg?label=ready&title=Ready)](http://waffle.io/bolorundurowb/Fire-Notes) [![CircleCI](https://circleci.com/gh/bolorundurowb/Fire-Notes.svg?style=svg)](https://circleci.com/gh/bolorundurowb/Fire-Notes)
+[![Build status](https://ci.appveyor.com/api/projects/status/wbvnmnjwjhd54248/branch/master?svg=true)](https://ci.appveyor.com/project/BolorunduroWinnerTimothy/firenotes/branch/master) [![Waffle.io - Columns and their card count](https://badge.waffle.io/bolorundurowb/firenotes.svg?columns=all)](https://waffle.io/bolorundurowb/firenotes)
 
 A simple android notes app using Google's Firebase as the backend
 
