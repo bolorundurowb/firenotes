@@ -42,6 +42,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\NoteDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -64,10 +68,11 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="AuthDatabase.cs" />
-    <Compile Include="Views\NoteDetailsPage.cs" />
+    <Compile Include="Views\NoteDetailsPage.xaml.cs">
+      <DependentUpon>NoteDetailsPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels" />
     <Folder Include="Views\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Models\" />
