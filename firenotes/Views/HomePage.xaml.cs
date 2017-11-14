@@ -12,15 +12,15 @@ namespace firenotes.Views
         {
             Items.Add("Number One");
             Items.Add("Number One");
-            Items.Add("Number One");
-            Items.Add("Number One");
-            Items.Add("Number One");
-            Items.Add("Number One");
-            Items.Add("Number One");
 
             InitializeComponent();
 
             this.Title = "Your Notes";
+
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                absContent.BackgroundColor = Color.FromHex("#FAFAFA");
+            }
         }
 
         protected async void AddNote(object sender, EventArgs e)
@@ -38,7 +38,6 @@ namespace firenotes.Views
             base.OnAppearing();
 
             this.lstNotes.ItemsSource = Items;
-            this.lstNotes.ItemTapped += Handle_ItemTapped;
         }
     }
 }

@@ -6,6 +6,7 @@
     Padding="20">
     <ContentPage.Content>
         <StackLayout
+            x:Name="stkContent"
             Orientation="Vertical"
             VerticalOptions="Fill">
             <Label Text="Email:" Margin="0, 30, 0 ,0" />

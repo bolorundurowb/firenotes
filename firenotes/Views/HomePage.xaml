@@ -6,11 +6,13 @@
     x:Class="firenotes.Views.HomePage"
     Padding="0, 5, 20, 5">
 	<ContentPage.Content>
-        <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <AbsoluteLayout
+            x:Name="absContent" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
              <ListView 
                 x:Name="lstNotes"
                 HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand">
+                VerticalOptions="FillAndExpand"
+                ItemTapped="Handle_ItemTapped">
 
             </ListView>
             <controls:FloatingActionButton

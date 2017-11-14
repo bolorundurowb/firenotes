@@ -4,7 +4,7 @@
     "FirebaseDatabase.net": "3.0.3",
     "sqlite-net-pcl": "1.4.118",
     "SuaveControls.FloatingActionButton": "2017.10.17",
-    "Xamarin.Forms": "2.4.0.38779"
+    "Xamarin.Forms": "2.4.0.74863"
   },
   "frameworks": {
     ".NETPortable,Version=v4.5,Profile=Profile111": {}
