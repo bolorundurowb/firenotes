@@ -163,10 +163,19 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iTunesArtwork%402x.png" />
     <ImageAsset Include="Assets.xcassets\ic_add_white.png.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\ic_add_white.png.imageset\ic_add_white.png" />
+    <ImageAsset Include="Assets.xcassets\ic_edit.png.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_edit.png.imageset\icons8-edit-filled.png" />
+    <ImageAsset Include="Assets.xcassets\ic_unfavorite.png.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_unfavorite.png.imageset\icons8-christmas-star.png" />
+    <ImageAsset Include="Assets.xcassets\ic_favorite.png.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_favorite.png.imageset\icons8-christmas-star-filled.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Assets.xcassets\ic_add_white.png.imageset\" />
+    <Folder Include="Assets.xcassets\ic_edit.png.imageset\" />
+    <Folder Include="Assets.xcassets\ic_unfavorite.png.imageset\" />
+    <Folder Include="Assets.xcassets\ic_favorite.png.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
