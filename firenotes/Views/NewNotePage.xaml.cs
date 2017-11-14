@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using Xamarin.Forms;
 
@@ -20,6 +19,10 @@ namespace firenotes.Views
             {
                 btnSave.BackgroundColor = Color.FromHex("#FF9800");
                 btnSave.TextColor = Color.White;
+
+                stkContent.BackgroundColor = Color.FromHex("#FAFAFA");
+                frmEditor.BackgroundColor = Color.FromHex("#FAFAFA");
+                txtDetails.BackgroundColor = Color.FromHex("#FAFAFA");
             }
         }
 

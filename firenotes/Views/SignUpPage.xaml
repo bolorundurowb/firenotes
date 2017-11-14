@@ -4,6 +4,7 @@
     Padding="20">
     <ContentPage.Content>
         <StackLayout
+            x:Name="stkContent"
             Orientation="Vertical"
             VerticalOptions="Fill">
             <Label Text="Firstname:" Margin="0, 15, 0 ,0" />
