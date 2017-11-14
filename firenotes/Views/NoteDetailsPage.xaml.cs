@@ -10,6 +10,8 @@ namespace firenotes.Views
         public NoteDetailsPage()
         {
             InitializeComponent();
+
+            this.Title = "Note Details";
         }
     }
 }
