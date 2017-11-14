@@ -164,11 +164,11 @@
     <ImageAsset Include="Assets.xcassets\ic_add_white.png.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\ic_add_white.png.imageset\ic_add_white.png" />
     <ImageAsset Include="Assets.xcassets\ic_edit.png.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\ic_edit.png.imageset\icons8-edit-filled.png" />
     <ImageAsset Include="Assets.xcassets\ic_unfavorite.png.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\ic_unfavorite.png.imageset\icons8-christmas-star.png" />
     <ImageAsset Include="Assets.xcassets\ic_favorite.png.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\ic_favorite.png.imageset\icons8-christmas-star-filled.png" />
+    <ImageAsset Include="Assets.xcassets\ic_favorite.png.imageset\rsz_icons8-christmas-star-filled.png" />
+    <ImageAsset Include="Assets.xcassets\ic_unfavorite.png.imageset\rsz_icons8-christmas-star.png" />
+    <ImageAsset Include="Assets.xcassets\ic_edit.png.imageset\rsz_icons8-ball-point-pen-filled.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

@@ -32,5 +32,13 @@ namespace firenotes.Views
         {
             await Navigation.PushAsync(new NoteDetailsPage());
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            this.lstNotes.ItemsSource = Items;
+            this.lstNotes.ItemTapped += Handle_ItemTapped;
+        }
     }
 }

@@ -9,10 +9,8 @@
         <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
              <ListView 
                 x:Name="lstNotes"
-                ItemsSource="{Binding Items}"
                 HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"
-                ItemTapped="Handle_ItemTapped">
+                VerticalOptions="FillAndExpand">
 
             </ListView>
             <controls:FloatingActionButton

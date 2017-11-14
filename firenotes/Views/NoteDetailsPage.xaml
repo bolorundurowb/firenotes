@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="firenotes.Views.NoteDetailsPage">
 	<ContentPage.ToolbarItems>
-		<ToolbarItem Order="Primary" Icon="Microsoft.png" Text="Favorite" Priority="0" />
-		<ToolbarItem Order="Primary" Icon="Xamarin.png" Text="Edit" Priority="1" />
+        <ToolbarItem Order="Primary" Icon="ic_edit.png" Text="Edit" Priority="0" />
+		<ToolbarItem Order="Primary" Icon="ic_favorite.png" Text="Favorite" Priority="1" />
 	</ContentPage.ToolbarItems>
 	
 	<ContentPage.Content>
@@ -13,13 +13,13 @@
 			Orientation="Vertical"
 			Padding="20">
 			<Label Text="Title:"></Label>
-			<Label x:Name="lblTitle" TextColor="#757575"></Label>
+			<Label x:Name="lblTitle" TextColor="#757575" Margin="0, 5, 0, 0"></Label>
 			
 			<Label Text="Content:" Margin="0, 20, 0, 0"></Label>
-			<Label x:Name="lblContent" HeightRequest="250" TextColor="#757575"></Label>
+			<Label x:Name="lblContent" HeightRequest="250" TextColor="#757575" Margin="0, 5, 0, 0"></Label>
 			
 			<Label Text="Created:" Margin="0, 20, 0, 0"></Label>
-			<Label x:Name="lblCreated" TextColor="#FF9800"></Label>
+			<Label x:Name="lblCreated" TextColor="#FF9800" Margin="0, 5, 0, 0"></Label>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
