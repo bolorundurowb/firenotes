@@ -1,11 +1,17 @@
 ﻿using System;
-
+using Firebase.Database;
 using Xamarin.Forms;
 
 namespace firenotes.Views
 {
     public partial class NewNotePage : ContentPage
     {
+        FirebaseClient firebaseClient = new FirebaseClient(Constants.FirebaseUrl + "notes",
+            new FirebaseOptions
+            {
+                AuthTokenAsyncFactory = async () => App.AuthLink.FirebaseToken
+            });
+        
         public NewNotePage()
         {
             InitializeComponent();
