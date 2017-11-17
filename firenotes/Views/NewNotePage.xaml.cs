@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using firenotes.Models;
 using Firebase.Database;
 using Xamarin.Forms;
 
@@ -6,12 +8,15 @@ namespace firenotes.Views
 {
     public partial class NewNotePage : ContentPage
     {
-        FirebaseClient firebaseClient = new FirebaseClient(Constants.FirebaseUrl + "notes",
+        private static string nodeUrl = Constants.FirebaseUrl + "users/" + App.AuthLink.User.FederatedId;
+
+        FirebaseClient firebaseClient = new FirebaseClient(
+            nodeUrl,
             new FirebaseOptions
             {
                 AuthTokenAsyncFactory = async () => App.AuthLink.FirebaseToken
             });
-        
+
         public NewNotePage()
         {
             InitializeComponent();
@@ -34,10 +39,45 @@ namespace firenotes.Views
 
         protected async void Save(object sender, EventArgs e)
         {
-            this.txtTitle.Text = null;
-            this.txtDetails.Text = null;
+            if (string.IsNullOrWhiteSpace(txtTitle.Text))
+            {
+                DisplayError("Sorry, the title field is required.");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtDetails.Text))
+            {
+                bool response = await DisplayAlert("Warning",
+                    "You have not filled in anything in the note details field. Do you want to proceed with saving this note?",
+                    "Yes", "No");
 
-            await Navigation.PopAsync();
+                if (!response)
+                {
+                    return;
+                }
+
+                this.spnrLoading.IsVisible = true;
+
+                //await firebaseClient
+                //.Child("notes")
+                //.PostAsync(new Note
+                //{
+                //    Title = txtTitle.Text,
+                //    Details = txtDetails.Text,
+                //    IsFavorite = false,
+                //    Tags = new List<string>()
+                //});
+
+                this.txtTitle.Text = null;
+                this.txtDetails.Text = null;
+
+                await Navigation.PopAsync();
+            }
+
+        }
+
+        private void DisplayError(string message)
+        {
+            DisplayAlert("Error", message, "OK");
         }
     }
 }
