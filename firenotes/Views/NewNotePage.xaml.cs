@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using firenotes.Models;
 using Firebase.Database;
+using Firebase.Database.Offline;
 using Xamarin.Forms;
 
 namespace firenotes.Views
@@ -20,7 +21,7 @@ namespace firenotes.Views
         public NewNotePage()
         {
             InitializeComponent();
-            this.Title = "New Note";
+            Title = "New Note";
 
             if (Device.RuntimePlatform == Device.iOS)
             {
@@ -39,6 +40,8 @@ namespace firenotes.Views
 
         protected async void Save(object sender, EventArgs e)
         {
+            var notesDb = firebaseClient.Child("notes").AsRealtimeDatabase<Note>();
+            
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
                 DisplayError("Sorry, the title field is required.");
@@ -55,22 +58,20 @@ namespace firenotes.Views
                     return;
                 }
 
-                this.spnrLoading.IsVisible = true;
+                spnrLoading.IsVisible = true;
 
-                //await firebaseClient
-                //.Child("notes")
-                //.PostAsync(new Note
-                //{
-                //    Title = txtTitle.Text,
-                //    Details = txtDetails.Text,
-                //    IsFavorite = false,
-                //    Tags = new List<string>()
-                //});
+                notesDb
+                .Post(new Note
+                {
+                    Title = txtTitle.Text,
+                    Details = txtDetails.Text,
+                    IsFavorite = false,
+                    Tags = new List<string>()
+                });
 
-                this.txtTitle.Text = null;
-                this.txtDetails.Text = null;
-
-                await Navigation.PopAsync();
+                txtTitle.Text = null;
+                txtDetails.Text = null;
+                spnrLoading.IsVisible = false;
             }
 
         }
