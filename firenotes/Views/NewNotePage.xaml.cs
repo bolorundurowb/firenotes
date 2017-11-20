@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using firenotes.Models;
 using Firebase.Database;
-using Firebase.Database.Offline;
 using Xamarin.Forms;
 
 namespace firenotes.Views
 {
     public partial class NewNotePage : ContentPage
     {
-        private static string nodeUrl = Constants.FirebaseUrl + "users/" + App.AuthLink.User.FederatedId;
+        private static string nodeUrl = $"{Constants.FirebaseUrl}users/{App.AuthLink.User.LocalId}";
 
         FirebaseClient firebaseClient = new FirebaseClient(
             nodeUrl,
@@ -40,8 +39,6 @@ namespace firenotes.Views
 
         protected async void Save(object sender, EventArgs e)
         {
-            var notesDb = firebaseClient.Child("notes").AsRealtimeDatabase<Note>();
-            
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
                 DisplayError("Sorry, the title field is required.");
@@ -49,6 +46,8 @@ namespace firenotes.Views
             }
             if (string.IsNullOrWhiteSpace(txtDetails.Text))
             {
+                var db = firebaseClient.Child("notes");
+
                 bool response = await DisplayAlert("Warning",
                     "You have not filled in anything in the note details field. Do you want to proceed with saving this note?",
                     "Yes", "No");
@@ -58,20 +57,34 @@ namespace firenotes.Views
                     return;
                 }
 
+                txtTitle.IsEnabled = false;
+                txtDetails.IsEnabled = false;
                 spnrLoading.IsVisible = true;
 
-                notesDb
-                .Post(new Note
+                var note = new Note
                 {
                     Title = txtTitle.Text,
                     Details = txtDetails.Text,
                     IsFavorite = false,
                     Tags = new List<string>()
-                });
+                };
 
-                txtTitle.Text = null;
-                txtDetails.Text = null;
-                spnrLoading.IsVisible = false;
+                try
+                {
+                    await db.PostAsync(note);
+
+                    txtTitle.Text = null;
+                    txtDetails.Text = null;
+                    txtTitle.IsEnabled = true;
+                    txtDetails.IsEnabled = true;
+                    spnrLoading.IsVisible = false;
+                }
+                catch (Exception)
+                {
+                    txtTitle.IsEnabled = true;
+                    txtDetails.IsEnabled = true;
+                    spnrLoading.IsVisible = false;
+                }
             }
 
         }

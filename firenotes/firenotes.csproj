@@ -51,6 +51,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IMessage.cs" />
     <Compile Include="Models\Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\SignInPage.xaml.cs">
