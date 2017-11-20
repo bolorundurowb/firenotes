@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using firenotes.Interfaces;
 using firenotes.Models;
 using Firebase.Database;
 using Xamarin.Forms;
@@ -71,19 +72,23 @@ namespace firenotes.Views
 
                 try
                 {
-                    await db.PostAsync(note);
+                    await db.PostAsync("Hello World.");
 
                     txtTitle.Text = null;
                     txtDetails.Text = null;
                     txtTitle.IsEnabled = true;
                     txtDetails.IsEnabled = true;
                     spnrLoading.IsVisible = false;
+
+                    DependencyService.Get<IMessage>().LongAlert("Note added successfully.");
                 }
                 catch (Exception)
                 {
                     txtTitle.IsEnabled = true;
                     txtDetails.IsEnabled = true;
                     spnrLoading.IsVisible = false;
+
+                    DependencyService.Get<IMessage>().LongAlert("An error occuurred when adding the note.");
                 }
             }
 
