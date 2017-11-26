@@ -20,6 +20,8 @@ namespace firenotes.Views
             {
                 btnSignUp.BackgroundColor = Color.FromHex("#FF9800");
                 btnSignUp.TextColor = Color.White;
+
+                stkContent.BackgroundColor = Color.FromHex("#FAFAFA");
             }
         }
 

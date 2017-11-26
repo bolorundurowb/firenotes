@@ -12,15 +12,15 @@ namespace firenotes.Views
         {
             Items.Add("Number One");
             Items.Add("Number One");
-            Items.Add("Number One");
-            Items.Add("Number One");
-            Items.Add("Number One");
-            Items.Add("Number One");
-            Items.Add("Number One");
 
             InitializeComponent();
 
             this.Title = "Your Notes";
+
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                absContent.BackgroundColor = Color.FromHex("#FAFAFA");
+            }
         }
 
         protected async void AddNote(object sender, EventArgs e)
@@ -31,6 +31,13 @@ namespace firenotes.Views
         async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
             await Navigation.PushAsync(new NoteDetailsPage());
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            this.lstNotes.ItemsSource = Items;
         }
     }
 }

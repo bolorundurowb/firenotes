@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Linq;
 using Firebase.Auth;
 using Xamarin.Forms;
+using User = firenotes.Models.User;
 
 namespace firenotes.Views
 {
@@ -10,9 +10,9 @@ namespace firenotes.Views
         public SignInPage()
         {
             InitializeComponent();
-            this.Title = "Sign In";
+            Title = "Sign In";
 
-            lblsignUp.GestureRecognizers.Add(new TapGestureRecognizer((view) => GoToSignUp()));
+            lblsignUp.GestureRecognizers.Add(new TapGestureRecognizer(view => GoToSignUp()));
 
             if (Device.RuntimePlatform == Device.iOS)
             {
@@ -22,6 +22,8 @@ namespace firenotes.Views
             {
                 btnSignIn.BackgroundColor = Color.FromHex("#FF9800");
                 btnSignIn.TextColor = Color.White;
+
+                stkContent.BackgroundColor = Color.FromHex("#FAFAFA");
             }
         }
 
@@ -30,9 +32,8 @@ namespace firenotes.Views
             var user = App.AuthDatabase.GetUser();
             if (user != null)
             {
-                // Navigate to the home page
-                Navigation.InsertPageBefore(new HomePage(), this);
-                Navigation.PopAsync();
+                txtEmail.Text = user.Email;
+                txtPassword.Text = user.Password;
             }
         }
 
@@ -53,22 +54,22 @@ namespace firenotes.Views
                 return;
             }
 
-            this.spnrLoading.IsVisible = true;
-            this.btnSignIn.IsEnabled = false;
+            spnrLoading.IsVisible = true;
+            btnSignIn.IsEnabled = false;
 
             try
             {
                 App.AuthLink = await App.AuthProvider.SignInWithEmailAndPasswordAsync(email, password);
 
-                this.spnrLoading.IsVisible = false;
-                this.btnSignIn.IsEnabled = true;
+                spnrLoading.IsVisible = false;
+                btnSignIn.IsEnabled = true;
 
                 // Navigate to the home page
                 Navigation.InsertPageBefore(new HomePage(), this);
                 await Navigation.PopAsync();
 
                 // persist the user in storage
-                await App.AuthDatabase.SaveUserAsync(new Models.User
+                await App.AuthDatabase.SaveUserAsync(new User
                 {
                     Firstname = App.AuthLink.User.FirstName,
                     Surname = App.AuthLink.User.LastName,
@@ -95,8 +96,8 @@ namespace firenotes.Views
                     DisplayError("Sorry, an error occurred. Please try again.");
                 }
 
-                this.spnrLoading.IsVisible = false;
-                this.btnSignIn.IsEnabled = true;
+                spnrLoading.IsVisible = false;
+                btnSignIn.IsEnabled = true;
             }
 
 
