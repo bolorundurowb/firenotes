@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Plugin.Toasts;
 using SuaveControls.FloatingActionButton.iOS.Renderers;
 using UIKit;
+using Xamarin.Forms;
 
 namespace firenotes.iOS
 {
@@ -14,6 +16,9 @@ namespace firenotes.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            DependencyService.Register<ToastNotification>();
+            ToastNotification.Init();
 
             FloatingActionButtonRenderer.InitRenderer();
 
