@@ -8,6 +8,8 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Android.Graphics;
+using Xamarin.Forms;
+using Plugin.Toasts;
 
 namespace firenotes.Droid
 {
@@ -22,6 +24,9 @@ namespace firenotes.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            DependencyService.Register<ToastNotification>();
+            ToastNotification.Init(this);
 
             LoadApplication(new App());
         }

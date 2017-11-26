@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using firenotes.Interfaces;
 using firenotes.Models;
 using Firebase.Database;
+using Firebase.Database.Query;
 using Xamarin.Forms;
+using Plugin.Toasts;
 
 namespace firenotes.Views
 {
@@ -47,8 +49,6 @@ namespace firenotes.Views
             }
             if (string.IsNullOrWhiteSpace(txtDetails.Text))
             {
-                var db = firebaseClient.Child("notes");
-
                 bool response = await DisplayAlert("Warning",
                     "You have not filled in anything in the note details field. Do you want to proceed with saving this note?",
                     "Yes", "No");
@@ -57,41 +57,56 @@ namespace firenotes.Views
                 {
                     return;
                 }
-
-                txtTitle.IsEnabled = false;
-                txtDetails.IsEnabled = false;
-                spnrLoading.IsVisible = true;
-
-                var note = new Note
-                {
-                    Title = txtTitle.Text,
-                    Details = txtDetails.Text,
-                    IsFavorite = false,
-                    Tags = new List<string>()
-                };
-
-                try
-                {
-                    await db.PostAsync("Hello World.");
-
-                    txtTitle.Text = null;
-                    txtDetails.Text = null;
-                    txtTitle.IsEnabled = true;
-                    txtDetails.IsEnabled = true;
-                    spnrLoading.IsVisible = false;
-
-                    DependencyService.Get<IMessage>().LongAlert("Note added successfully.");
-                }
-                catch (Exception)
-                {
-                    txtTitle.IsEnabled = true;
-                    txtDetails.IsEnabled = true;
-                    spnrLoading.IsVisible = false;
-
-                    DependencyService.Get<IMessage>().LongAlert("An error occuurred when adding the note.");
-                }
             }
 
+            var db = firebaseClient.Child("notes");
+
+            txtTitle.IsEnabled = false;
+            txtDetails.IsEnabled = false;
+            spnrLoading.IsVisible = true;
+
+            var note = new Note
+            {
+                Title = txtTitle.Text,
+                Details = txtDetails.Text,
+                IsFavorite = false,
+                Tags = new List<string>()
+            };
+
+            try
+            {
+                var temp = await db.PostAsync(note);
+
+                txtTitle.Text = null;
+                txtDetails.Text = null;
+                txtTitle.IsEnabled = true;
+                txtDetails.IsEnabled = true;
+                spnrLoading.IsVisible = false;
+
+                var notificationOptions = new NotificationOptions
+                {
+                    Title = "Success",
+                    Description = "Your note has been successfully saved.",
+                    IsClickable = false
+                };
+                var notification = DependencyService.Get<IToastNotificator>();
+                await notification.Notify(notificationOptions);
+            }
+            catch (Exception)
+            {
+                txtTitle.IsEnabled = true;
+                txtDetails.IsEnabled = true;
+                spnrLoading.IsVisible = false;
+
+                var notificationOptions = new NotificationOptions
+                {
+                    Title = "Error",
+                    Description = "An error occurred when saving your note",
+                    IsClickable = false
+                };
+                var notification = DependencyService.Get<IToastNotificator>();
+                await notification.Notify(notificationOptions);
+            }
         }
 
         private void DisplayError(string message)

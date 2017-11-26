@@ -4,6 +4,7 @@
     "FirebaseDatabase.net": "3.0.3",
     "sqlite-net-pcl": "1.4.118",
     "SuaveControls.FloatingActionButton": "2017.10.17",
+    "Toasts.Forms.Plugin": "3.2.1",
     "Xamarin.Forms": "2.5.0.91635"
   },
   "frameworks": {

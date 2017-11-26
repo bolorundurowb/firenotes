@@ -1654,6 +1654,8 @@ namespace firenotes.Droid
 			global::SuaveControls.FloatingActionButton.Droid.Resource.Styleable.ViewStubCompat_android_id = global::firenotes.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::SuaveControls.FloatingActionButton.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId = global::firenotes.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::SuaveControls.FloatingActionButton.Droid.Resource.Styleable.ViewStubCompat_android_layout = global::firenotes.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::Plugin.Toasts.Resource.String.ApplicationName = global::firenotes.Droid.Resource.String.ApplicationName;
+			global::Plugin.Toasts.Resource.String.Hello = global::firenotes.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::firenotes.Droid.Resource.Attribute.actionBarSize;
 		}
 		
