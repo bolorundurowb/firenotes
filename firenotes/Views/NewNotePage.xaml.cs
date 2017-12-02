@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using firenotes.Interfaces;
 using firenotes.Models;
 using Firebase.Database;
 using Firebase.Database.Query;
