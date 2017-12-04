@@ -1,18 +1,26 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using Firebase.Database;
+using Firebase.Database.Query;
+using firenotes.Models;
 using Xamarin.Forms;
 
 namespace firenotes.Views
 {
     public partial class HomePage : ContentPage
     {
-        ObservableCollection<string> Items = new ObservableCollection<string>();
+        private static string nodeUrl = $"{Constants.FirebaseUrl}users/{App.AuthLink.User.LocalId}";
+        ObservableCollection<Note> Items = new ObservableCollection<Note>();
+
+        FirebaseClient firebaseClient = new FirebaseClient(
+            nodeUrl,
+            new FirebaseOptions
+            {
+                AuthTokenAsyncFactory = async () => App.AuthLink.FirebaseToken
+            });
 
         public HomePage()
         {
-            Items.Add("Number One");
-            Items.Add("Number One");
-
             InitializeComponent();
 
             this.Title = "Your Notes";
@@ -37,7 +45,27 @@ namespace firenotes.Views
         {
             base.OnAppearing();
 
+            // clear existing data
+            this.Items.Clear();
+
+            // disable list till data is loaded
+            this.lstNotes.IsEnabled = false;
+            this.spnrLoading.IsVisible = true;
+
+            var notes = firebaseClient
+                .Child("notes")
+                .OnceAsync<Note>().Result;
+
+            foreach (var note in notes)
+            {
+                Items.Add(note.Object);
+            }
+
             this.lstNotes.ItemsSource = Items;
+
+            // enable list and hide loading
+            this.lstNotes.IsEnabled = true;
+            this.spnrLoading.IsVisible = false;
         }
     }
 }

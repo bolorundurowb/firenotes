@@ -7,14 +7,31 @@
     Padding="0, 5, 20, 5">
 	<ContentPage.Content>
         <AbsoluteLayout
-            x:Name="absContent" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-             <ListView 
-                x:Name="lstNotes"
+            x:Name="absContent" 
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand">
+
+            <ActivityIndicator
+                x:Name="spnrLoading" 
+                IsVisible="false" 
+                HorizontalOptions="Center"
+                WidthRequest="20" 
+                HeightRequest="20" 
+                IsRunning="true" 
+                Color="#FF9800"/>
+
+            
+            <ListView x:Name="lstNotes"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"
                 ItemTapped="Handle_ItemTapped">
-
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Title}" Detail="{Binding Details}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
+            
             <controls:FloatingActionButton
                 x:Name="fabAddNote" 
                 WidthRequest="60"
