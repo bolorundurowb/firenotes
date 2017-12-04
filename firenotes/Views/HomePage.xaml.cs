@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using firenotes.Models;
 using Xamarin.Forms;
 
 namespace firenotes.Views
 {
     public partial class HomePage : ContentPage
     {
-        ObservableCollection<string> Items = new ObservableCollection<string>();
+        ObservableCollection<Note> Items = new ObservableCollection<Note>();
 
         public HomePage()
         {
-            Items.Add("Number One");
-            Items.Add("Number One");
-
             InitializeComponent();
 
             this.Title = "Your Notes";

@@ -8,13 +8,17 @@
 	<ContentPage.Content>
         <AbsoluteLayout
             x:Name="absContent" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-             <ListView 
-                x:Name="lstNotes"
+            <ListView x:Name="lstNotes"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"
                 ItemTapped="Handle_ItemTapped">
-
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Title}" Detail="{Binding Details}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
+            
             <controls:FloatingActionButton
                 x:Name="fabAddNote" 
                 WidthRequest="60"
