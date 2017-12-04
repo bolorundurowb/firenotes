@@ -7,7 +7,20 @@
     Padding="0, 5, 20, 5">
 	<ContentPage.Content>
         <AbsoluteLayout
-            x:Name="absContent" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            x:Name="absContent" 
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand">
+
+            <ActivityIndicator
+                x:Name="spnrLoading" 
+                IsVisible="false" 
+                HorizontalOptions="Center"
+                WidthRequest="20" 
+                HeightRequest="20" 
+                IsRunning="true" 
+                Color="#FF9800"/>
+
+            
             <ListView x:Name="lstNotes"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"
