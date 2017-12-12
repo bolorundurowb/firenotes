@@ -4,7 +4,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="firenotes.Views.NoteDetailsPage">
 	<ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="tlbEdit" Order="Primary" Icon="ic_edit.png" Text="Edit" Priority="0" />
+        <ToolbarItem Order="Primary" Icon="ic_edit.png" Text="Edit" Priority="0" />
 		<ToolbarItem x:Name="tlbFavorite" Order="Primary" Icon="ic_favorite.png" Text="Favorite" Priority="1" />
 	</ContentPage.ToolbarItems>
 	

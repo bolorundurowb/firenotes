@@ -21,6 +21,11 @@ namespace firenotes.Views
             this.lblTitle.Text = note.Title;
             this.lblContent.Text = note.Details;
             this.lblCreated.Text = note.Created.ToString("dd/MM/yyy HH:mm:ss");
+
+            if (note.IsFavorite)
+            {
+                tlbFavorite.Icon = "ic_unfavorite.png";
+            }
         }
     }
 }
