@@ -4,8 +4,8 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="firenotes.Views.NoteDetailsPage">
 	<ContentPage.ToolbarItems>
-        <ToolbarItem Order="Primary" Icon="ic_edit.png" Text="Edit" Priority="0" />
-		<ToolbarItem Order="Primary" Icon="ic_favorite.png" Text="Favorite" Priority="1" />
+        <ToolbarItem x:Name="tlbEdit" Order="Primary" Icon="ic_edit.png" Text="Edit" Priority="0" />
+		<ToolbarItem x:Name="tlbFavorite" Order="Primary" Icon="ic_favorite.png" Text="Favorite" Priority="1" />
 	</ContentPage.ToolbarItems>
 	
 	<ContentPage.Content>
@@ -18,7 +18,7 @@
 			<Label x:Name="lblTitle" TextColor="#757575" Margin="0, 5, 0, 0"></Label>
 			
 			<Label Text="Content:" Margin="0, 20, 0, 0" TextColor="Black"></Label>
-			<Label x:Name="lblContent" HeightRequest="250" TextColor="#757575" Margin="0, 5, 0, 0" LineBreakMode="CharacterWrap" XAlign="Start"></Label>
+			<Label x:Name="lblContent" TextColor="#757575" Margin="0, 5, 0, 0" LineBreakMode="CharacterWrap" XAlign="Start"></Label>
 			
 			<Label Text="Created:" Margin="0, 20, 0, 0" TextColor="Black"></Label>
 			<Label x:Name="lblCreated" TextColor="#FF9800" Margin="0, 5, 0, 0"></Label>

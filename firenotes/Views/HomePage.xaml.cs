@@ -38,7 +38,7 @@ namespace firenotes.Views
 
         async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
-            await Navigation.PushAsync(new NoteDetailsPage());
+            await Navigation.PushAsync(new NoteDetailsPage((Note)e.Item));
         }
 
         protected override void OnAppearing()

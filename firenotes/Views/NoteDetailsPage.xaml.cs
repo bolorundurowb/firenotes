@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using firenotes.Models;
 using Xamarin.Forms;
 
 namespace firenotes.Views
 {
     public partial class NoteDetailsPage : ContentPage
     {
-        public NoteDetailsPage()
+        public NoteDetailsPage(Note note)
         {
             InitializeComponent();
 
@@ -18,9 +18,9 @@ namespace firenotes.Views
                 stkContent.BackgroundColor = Color.FromHex("#FAFAFA");
             }
 
-            this.lblTitle.Text = "Hello World";
-            this.lblContent.Text = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id egestas lacus. In accumsan leo eget velit rutrum sagittis. Integer nec pharetra ligula. Pellentesque mauris magna, porttitor nec ligula sed, fringilla iaculis urna. Quisque gravida faucibus lobortis. Cras scelerisque est sit amet justo fringilla, at ullamcorper arcu aliquam. Mauris pretium scelerisque eros in pulvinar. Cras vel ipsum convallis, commodo nisl in, dapibus libero.";
-            this.lblCreated.Text = @"11/14/2017 10:23:28";
+            this.lblTitle.Text = note.Title;
+            this.lblContent.Text = note.Details;
+            this.lblCreated.Text = note.Created.ToString("dd/MM/yyy HH:mm:ss");
         }
     }
 }
