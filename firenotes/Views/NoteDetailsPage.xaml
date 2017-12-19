@@ -5,7 +5,7 @@
 	x:Class="firenotes.Views.NoteDetailsPage">
 	<ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary" Icon="ic_edit.png" Text="Edit" Priority="0" />
-		<ToolbarItem x:Name="tlbFavorite" Order="Primary" Icon="ic_favorite.png" Text="Favorite" Priority="1" />
+        <ToolbarItem x:Name="tlbFavorite" Order="Primary" Icon="ic_favorite.png" Text="Favorite" Priority="1" Clicked="Un_Favorite" />
 	</ContentPage.ToolbarItems>
 	
 	<ContentPage.Content>

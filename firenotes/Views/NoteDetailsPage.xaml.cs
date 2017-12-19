@@ -27,5 +27,10 @@ namespace firenotes.Views
                 tlbFavorite.Icon = "ic_unfavorite.png";
             }
         }
+
+        private async void Un_Favorite(object sender, EventArgs e)
+        {
+
+        }
     }
 }
