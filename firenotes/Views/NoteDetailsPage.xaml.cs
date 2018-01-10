@@ -28,9 +28,14 @@ namespace firenotes.Views
             }
         }
 
-        private async void Un_Favorite(object sender, EventArgs e)
+        private async void FavoriteNote(object sender, EventArgs e)
         {
+            
+        }
 
+        private async void UnFavoriteNote(object sender, EventArgs e)
+        {
+            
         }
     }
 }
