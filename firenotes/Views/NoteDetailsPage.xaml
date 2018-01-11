@@ -3,7 +3,8 @@
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="firenotes.Views.NoteDetailsPage"
-    xmlns:tb="clr-namespace:firenotes.Utils">
+    xmlns:tb="clr-namespace:firenotes.Utils"
+    x:Name="this">
     
 	<ContentPage.ToolbarItems>
         <ToolbarItem 
@@ -12,19 +13,21 @@
             Text="Edit" 
             Priority="0" />
         <tb:HideableToolbarItem 
+            x:Name="tlbFavourite"
             Icon="ic_favorite.png"
             Order="Primary" 
             Text="Favourite"
             Priority="1"
-            Clicked="FavoriteNote"
-            IsVisible="{Binding FavoriteVisible}"/>
+            Clicked="FavouriteNote"
+            Parent="{x:Reference this}"/>
         <tb:HideableToolbarItem 
+            x:Name="tlbUnfavorite"
             Icon="ic_unfavorite.png" 
             Order="Primary" 
             Text="Favourite" 
             Priority="1" 
-            Clicked="UnFavoriteNote"
-            IsVisible="{Binding UnFavoriteVisible}" />
+            Clicked="UnFavouriteNote"
+            Parent="{x:Reference this}"/>
 	</ContentPage.ToolbarItems>
 	
 	<ContentPage.Content>

@@ -6,9 +6,6 @@ namespace firenotes.Views
 {
     public partial class NoteDetailsPage : ContentPage
     {
-        public bool FavoriteVisible { get; set; }
-        public bool UnFavoriteVisible { get; set; }
-
         public NoteDetailsPage(Note note)
         {
             InitializeComponent();
@@ -28,25 +25,24 @@ namespace firenotes.Views
             this.lblCreated.Text = note.Created.ToString("dd/MM/yyy HH:mm:ss");
 
             // enable and disable buttons as required
-            // TODO: actually hide the unnecessary button
             if (note.IsFavorite)
             {
-                FavoriteVisible = false;
-                UnFavoriteVisible = true;
+                tlbFavourite.IsVisible = false;
+                tlbUnfavorite.IsVisible = true;
             }
             else
             {
-                FavoriteVisible = true;
-                UnFavoriteVisible = false;
+                tlbFavourite.IsVisible = true;
+                tlbUnfavorite.IsVisible = false;
             }
         }
 
-        private async void FavoriteNote(object sender, EventArgs e)
+        private async void FavouriteNote(object sender, EventArgs e)
         {
             
         }
 
-        private async void UnFavoriteNote(object sender, EventArgs e)
+        private async void UnFavouriteNote(object sender, EventArgs e)
         {
             
         }
