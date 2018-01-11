@@ -58,7 +58,10 @@ namespace firenotes.Views
 
             foreach (var note in notes)
             {
-                Items.Add(note.Object);
+                var _note = note.Object;
+                _note.Id = note.Key;
+
+                Items.Add(_note);
             }
 
             this.lstNotes.ItemsSource = Items;

@@ -2,10 +2,32 @@
 <ContentPage 
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	x:Class="firenotes.Views.NoteDetailsPage">
+	x:Class="firenotes.Views.NoteDetailsPage"
+    xmlns:tb="clr-namespace:firenotes.Utils"
+    x:Name="this">
+    
 	<ContentPage.ToolbarItems>
-        <ToolbarItem Order="Primary" Icon="ic_edit.png" Text="Edit" Priority="0" />
-		<ToolbarItem x:Name="tlbFavorite" Order="Primary" Icon="ic_favorite.png" Text="Favorite" Priority="1" />
+        <ToolbarItem 
+            Order="Primary" 
+            Icon="ic_edit.png" 
+            Text="Edit" 
+            Priority="1" />
+        <tb:HideableToolbarItem 
+            x:Name="tlbFavourite"
+            Icon="ic_favorite.png"
+            Order="Primary" 
+            Text="Favourite"
+            Priority="0"
+            Clicked="FavouriteNote"
+            Parent="{x:Reference this}"/>
+        <tb:HideableToolbarItem 
+            x:Name="tlbUnfavorite"
+            Icon="ic_unfavorite.png" 
+            Order="Primary" 
+            Text="Favourite" 
+            Priority="0" 
+            Clicked="UnFavouriteNote"
+            Parent="{x:Reference this}"/>
 	</ContentPage.ToolbarItems>
 	
 	<ContentPage.Content>
