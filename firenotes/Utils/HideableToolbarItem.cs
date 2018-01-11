@@ -1,12 +1,22 @@
-﻿using System;
+﻿using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace firenotes.Utils
 {
     public class HideableToolbarItem : ToolbarItem
     {
-        //NOTE: Default value is true, because toolbar items are by default visible when added to the Toolbar
-        public static readonly BindableProperty IsVisibleProperty = BindableProperty.Create(nameof(IsVisible), typeof(bool), typeof(HideableToolbarItem), true, BindingMode.TwoWay, null, OnIsVisibleChanged);
+        public HideableToolbarItem() : base()
+        {
+            this.InitVisibility();
+        }
+
+        private async void InitVisibility()
+        {
+            await Task.Delay(100);
+            OnIsVisibleChanged(this, false, IsVisible);
+        }
+
+        public ContentPage Parent { set; get; }
 
         public bool IsVisible
         {
@@ -14,33 +24,26 @@ namespace firenotes.Utils
             set { SetValue(IsVisibleProperty, value); }
         }
 
-        public ContentPage ParentPage
-        {
-            get { return Parent as ContentPage; }
-        }
+        public static BindableProperty IsVisibleProperty =
+            BindableProperty.Create<HideableToolbarItem, bool>(o => o.IsVisible, false, propertyChanged: OnIsVisibleChanged);
 
-        private static void OnIsVisibleChanged(BindableObject bindable, object oldvalue, object newvalue)
+        private static void OnIsVisibleChanged(BindableObject bindable, bool oldvalue, bool newvalue)
         {
             var item = bindable as HideableToolbarItem;
 
-            bool newVisible = (bool)newvalue;
-
-            if (item.ParentPage == null)
+            if (item.Parent == null)
                 return;
 
-            var items = item.ParentPage.ToolbarItems;
+            var items = item.Parent.ToolbarItems;
 
-            Device.BeginInvokeOnMainThread(() =>
+            if (newvalue && !items.Contains(item))
             {
-                if (newVisible && !items.Contains(item))
-                {
-                    items.Add(item);
-                }
-                else if (!newVisible && items.Contains(item))
-                {
-                    items.Remove(item);
-                }
-            });
+                items.Add(item);
+            }
+            else if (!newvalue && items.Contains(item))
+            {
+                items.Remove(item);
+            }
         }
     }
 }

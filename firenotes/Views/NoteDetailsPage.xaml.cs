@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using firenotes.Models;
 using Xamarin.Forms;
 
@@ -7,6 +6,9 @@ namespace firenotes.Views
 {
     public partial class NoteDetailsPage : ContentPage
     {
+        public bool FavoriteVisible { get; set; }
+        public bool UnFavoriteVisible { get; set; }
+
         public NoteDetailsPage(Note note)
         {
             InitializeComponent();
@@ -29,7 +31,13 @@ namespace firenotes.Views
             // TODO: actually hide the unnecessary button
             if (note.IsFavorite)
             {
-                
+                FavoriteVisible = false;
+                UnFavoriteVisible = true;
+            }
+            else
+            {
+                FavoriteVisible = true;
+                UnFavoriteVisible = false;
             }
         }
 
