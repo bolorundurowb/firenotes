@@ -11,13 +11,13 @@
             Order="Primary" 
             Icon="ic_edit.png" 
             Text="Edit" 
-            Priority="0" />
+            Priority="1" />
         <tb:HideableToolbarItem 
             x:Name="tlbFavourite"
             Icon="ic_favorite.png"
             Order="Primary" 
             Text="Favourite"
-            Priority="1"
+            Priority="0"
             Clicked="FavouriteNote"
             Parent="{x:Reference this}"/>
         <tb:HideableToolbarItem 
@@ -25,7 +25,7 @@
             Icon="ic_unfavorite.png" 
             Order="Primary" 
             Text="Favourite" 
-            Priority="1" 
+            Priority="0" 
             Clicked="UnFavouriteNote"
             Parent="{x:Reference this}"/>
 	</ContentPage.ToolbarItems>
