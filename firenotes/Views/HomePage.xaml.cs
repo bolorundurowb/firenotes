@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Firebase.Database;
 using Firebase.Database.Query;
 using firenotes.Models;
@@ -54,7 +55,9 @@ namespace firenotes.Views
 
             var notes = firebaseClient
                 .Child("notes")
-                .OnceAsync<Note>().Result;
+                .OnceAsync<Note>()
+                .Result;
+            
 
             foreach (var note in notes)
             {
@@ -63,6 +66,8 @@ namespace firenotes.Views
 
                 Items.Add(_note);
             }
+
+            Items = new ObservableCollection<Note>(Items.OrderBy(i => i.Created).Reverse());
 
             this.lstNotes.ItemsSource = Items;
 

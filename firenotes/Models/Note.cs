@@ -17,15 +17,10 @@ namespace firenotes.Models
 
         public List<string> Tags { get; set; }
 
-        public DateTime Created { get; private set; }
+        public DateTime Created { get; set; }
         
         public DateTime Updated { get; set; }
 
         public bool IsFavorite { get; set; }
-
-        public Note()
-        {
-            Created = DateTime.Now;
-        }
     }
 }

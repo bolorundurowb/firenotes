@@ -69,7 +69,8 @@ namespace firenotes.Views
                 Title = txtTitle.Text,
                 Details = txtDetails.Text,
                 IsFavorite = false,
-                Tags = new List<string>()
+                Tags = new List<string>(),
+                Created = DateTime.UtcNow
             };
 
             try
