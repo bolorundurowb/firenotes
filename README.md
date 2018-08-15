@@ -1,6 +1,6 @@
 # Fire-Notes
 
-[![Build Status](https://www.bitrise.io/app/50bd821b817e2fb0/status.svg?token=th2cwV_U9sg4x5IBkoeOdg&branch=master)](https://www.bitrise.io/app/50bd821b817e2fb0) [![Waffle.io - Columns and their card count](https://badge.waffle.io/bolorundurowb/firenotes.svg?columns=all)](https://waffle.io/bolorundurowb/firenotes)
+[![Build Status](https://app.bitrise.io/app/50bd821b817e2fb0/status.svg?token=th2cwV_U9sg4x5IBkoeOdg&branch=master)](https://app.bitrise.io/app/50bd821b817e2fb0) [![Waffle.io - Columns and their card count](https://badge.waffle.io/bolorundurowb/firenotes.svg?columns=all)](https://waffle.io/bolorundurowb/firenotes)
 
 A simple android notes app using Google's Firebase as the backend
 
