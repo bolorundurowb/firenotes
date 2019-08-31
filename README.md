@@ -29,7 +29,7 @@ A simple android notes app using Google's Firebase as the backend
 | --- | --- |
 | ![New Note](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/android/new-note.png) | ![New Note](https://github.com/bolorundurowb/firenotes/blob/master/Screenshots/ios/new-note.png) |
 
-**Note* Details*
+**Note Details**
 
 | Android | iOS|
 | --- | --- |
